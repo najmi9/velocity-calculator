@@ -45,6 +45,55 @@ function timeChange(j){
 }
 timeChange(1)
 
+
+
+function handleHrsChange(j){
+	document.querySelector(`input#i${j}hrs`).onkeyup = () =>{
+    	 const method = document.querySelector("select#method").value;
+    	 if (document.querySelector("input#Velo"+j).value) {
+			addNewFields(j);
+		}
+		 manageViewAndResult(method);
+	}
+}
+
+handleHrsChange(1)
+
+function handleMinChange(j){
+	document.querySelector(`input#i${j}min`).onkeyup = () =>{
+   	 	const method = document.querySelector("select#method").value;
+   	 	if (document.querySelector("input#Velo"+j).value) {
+			addNewFields(j);
+		}
+		manageViewAndResult(method);
+	}
+}
+handleMinChange(1)
+
+function handleSecChange(j){
+	document.querySelector(`input#i${j}sec`).onkeyup = () =>{
+     	const method = document.querySelector("select#method").value;
+     	console.log(document.querySelector("input#Velo"+j).value)
+     	if (document.querySelector("input#Velo"+j).value) {
+			addNewFields(j);
+		}
+		manageViewAndResult(method);
+	}
+}
+handleSecChange(1)
+
+function handleMin2Change(j){
+	document.querySelector(`input#i${j}min2`).onkeyup = () =>{
+    	 const method = document.querySelector("select#method").value;
+    	 if (document.querySelector("input#Velo"+j).value) {
+			addNewFields(j);
+		}
+		manageViewAndResult(method);
+	}
+}
+
+handleMin2Change(1)
+
 document.querySelector("input#hrs").onkeyup = () =>{
      const method = document.querySelector("select#method").value;
 	manageViewAndResult(method);

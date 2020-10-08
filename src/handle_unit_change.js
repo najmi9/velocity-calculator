@@ -88,14 +88,15 @@ function selectTimeChange(j){
 document.querySelector("select#itime"+j).onchange = ({ currentTarget }) => {
    const time = document.querySelector("input#itime"+j);
   //curr.value == newUnit
-  if ((currentTarget.value== "min/sec"||currentTarget.value=="hrs/min") || (previousTimeUnit== "min/sec"||previousTimeUnit=="hrs/min")) {
-        const normal = document.querySelector("div.normal-itime");
-        const minSec = document.querySelector("div.imin-sec");
-        const hrsMin = document.querySelector("div.ihrs-min"); 
-        const min = document.querySelector("input#imin");
-        const secs =document.querySelector("input#isec");
-        const hrs =document.querySelector("input#ihrs");
-        const min2 =document.querySelector("input#imin2");
+  if ((currentTarget.value== "min/sec"||currentTarget.value=="hrs/min") || (previousTimes[j]== "min/sec"||previousTimes[j]=="hrs/min")) {
+        const normal = document.querySelector(`div.normal-i${j}time`);
+        const minSec = document.querySelector(`div.i${j}min-sec`);
+        const hrsMin = document.querySelector(`div.i${j}hrs-min`); 
+       
+        const min = document.querySelector(`input#i${j}min`);
+        const secs =document.querySelector(`input#i${j}sec`);
+        const hrs =document.querySelector(`input#i${j}hrs`);
+        const min2 =document.querySelector(`input#i${j}min2`);
       const divs = [normal, minSec, hrsMin, min, secs, hrs, min2];
       handleTime(currentTarget.value, previousTimes[j], time, divs);
   }else{

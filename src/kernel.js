@@ -47,7 +47,6 @@ function manageViewAndResult(method) {
         }
         const V = DistanceCoveredVelo(D, T);
 		document.querySelector("input#VR").value = format(V*handleAccUnitChange(vu, 'm/s'));
-	
 	} else if (method == "Acceleration") {
 		const v = clean(document.querySelector("input#VA").value);
     const a = clean(document.querySelector("input#acceleration").value);
@@ -61,7 +60,6 @@ function manageViewAndResult(method) {
     const A = a * handleAccUnitChange('m/s²', au);
     const Vf = AccVelo(A, V, T);
     document.querySelector("input#VR").value = format(Vf*handleVeloUnitChange(vu, 'm/s'));
-	
   }else if (method == "Average velocity") {
       const velos = [];
 
@@ -94,7 +92,8 @@ function manageViewAndResult(method) {
 
       });
 		  const Vf = AverageVelo(velos, times);
-
 		  document.querySelector("input#VR").value = format(Vf*handleVeloUnitChange(vu, 'm/s'));
     }
+
 }
+
