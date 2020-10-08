@@ -30,6 +30,8 @@ function addNewFields(i){
 	handleMinChange(i+1);
 	handleSecChange(i+1);
 	handleMin2Change(i+1);
+
+	document.documentElement.scrollTo(0, document.documentElement.scrollHeight)
 }
 
 function handleAttruibuteChange(velo, time,selectTime,titleTime, titleVelo, 
