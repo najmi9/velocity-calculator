@@ -3,17 +3,17 @@ document.querySelector("div.hrs-min").style.display = 'none';
 document.querySelector("div#m-cm").style.display = 'none';
 document.querySelector("div#ft-inch").style.display = 'none';
 
-const ms = document.querySelector("div.imin-sec");
-const hm = document.querySelector("div.ihrs-min");
+const ms = document.querySelector("div.i1min-sec");
+const hm = document.querySelector("div.i1hrs-min");
 
 ms.style.display = 'none';
 hm.style.display = 'none';
 
 let distDiv = document.querySelector("div.distance");
 let normalSect = document.querySelector("section#normal");
-let unnormalSect = document.querySelector("section#unnormal");
+let unnormalSect = document.querySelector("section#unnormal1");
 let initialSpeeddDiv = document.querySelector("div.initialSpeed");
-
+const container = document.querySelector("div#container")
 const accDiv = document.querySelector("div#acceleration")
 
 accDiv.style.display = 'none';
@@ -37,13 +37,27 @@ document.querySelector("select#method").onchange=({currentTarget})=>{
 	document.getElementById('selectMethod').innerHTML = currentTarget.value;
     document.querySelectorAll("input").forEach(e=>e.value='');
 	if (currentTarget.value == "Distance covered") {
-        unnormalSect.style.display = 'none';
+		document.querySelectorAll("section.average").forEach( function(element, index) {
+			if (index == 0) {
+				unnormalSect.style.display = 'none';
+			}else{
+				container.removeChild(element)
+			}
+			
+		});
+        
 		normalSect.style.display = 'block';
         unflex(accDiv)
 		unflex(initialSpeeddDiv)
 		flex(distDiv)
 	} else if (currentTarget.value == "Acceleration") {
-		unnormalSect.style.display = 'none';
+		document.querySelectorAll("section.average").forEach( function(element, index) {
+			if (index == 0) {
+				unnormalSect.style.display = 'none';
+			}else{
+				container.removeChild(element)
+			}
+		});
 		normalSect.style.display = 'block';
 		flex(accDiv)
 		flex(initialSpeeddDiv)

@@ -1,14 +1,15 @@
-function handleTime (newUnit, previousUnit, x) {
+function handleTime (newUnit, previousUnit, x, divs) {
 	if (newUnit == previousUnit) {
 		return 1;
 	}
-     const normal = document.querySelector("div.normal-time");
-	 const minSec = document.querySelector("div.min-sec");
-	 const hrsMin = document.querySelector("div.hrs-min"); 
-     const min = document.querySelector("input#min");
-     const secs =document.querySelector("input#sec");
-     const hrs =document.querySelector("input#hrs");
-     const min2 =document.querySelector("input#min2");
+     const normal = divs[0];
+	 const minSec = divs[1];
+	 const hrsMin = divs[2]; 
+     const min = 	divs[3];
+     const secs =	divs[4];
+     const hrs =	divs[5];
+     const min2 =	divs[6];
+     
      const sec = {
 		'sec': 1, 'ms':0.001,'min': 60, 'hrs': 3600,
 		'dys': 3600 * 24, 'week': 3600 * 7 * 24, 'month': 3600 * 24 * 30,

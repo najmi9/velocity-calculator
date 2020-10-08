@@ -1,9 +1,10 @@
-function handleTimeUnits(tu){
+function handleTimeUnits(tu, ){
       let T = 0;
    if (tu == "min/sec" || tu == "hrs/min") {
            if (tu == "min/sec") {
-             const min = clean(document.querySelector("input#min").value);
-             const secs = clean(document.querySelector("input#sec").value);
+              const min = clean(document.querySelector("input#min").value);
+              const secs = clean(document.querySelector("input#sec").value);
+
               T  = min*60+secs;
           }else if(tu == "hrs/min") {
               const hrs =clean(document.querySelector("input#hrs").value);
@@ -62,33 +63,37 @@ function manageViewAndResult(method) {
     document.querySelector("input#VR").value = format(Vf*handleVeloUnitChange(vu, 'm/s'));
 	
   }else if (method == "Average velocity") {
-		  const v1 = clean(document.querySelector("input#Velo1").value);
-      const tu1 = document.querySelector("select#itime").value;
-      const vu1 = document.querySelector("select#Velo1").value;
-     
-      
-       let T1 = 0;
-   if (tu1 == "min/sec" || tu1 == "hrs/min") {
-           if (tu1 == "min/sec") {
-             const min = clean(document.querySelector("input#imin").value);
-             const secs = clean(document.querySelector("input#isec").value);
-              T1  = min*60+secs;
-          }else if(tu1 == "hrs/min") {
-              const hrs =clean(document.querySelector("input#ihrs").value);
-              const min =clean(document.querySelector("input#imin2").value);
-              T1 = hrs*3600+min*60;
-          }
-        }else{    
-       const t1 = clean(document.querySelector("input#itime").value);     
-           if(t1==0){return;}
-           T1 = t1 *  handleTimeUnitChange('sec', tu1);
+      const velos = [];
+
+      document.querySelectorAll("select[id^=Velo]").forEach((vu, i)=>{
+          const  j = i + 1;
+           const v = clean(document.querySelector(`input#Velo${j}`).value);
+          velos.push(v * handleVeloUnitChange('m/s', vu.value));
+      });
+
+      const times = [];
+
+      document.querySelectorAll('select[id^=itime]').forEach((tu, i)=>{
+        tu = tu.value
+        const j = i + 1;
+          if (tu == "min/sec" || tu == "hrs/min") {
+            if (tu == "min/sec") {
+             const min = clean(document.querySelector(`input#i${j}min`).value);
+             const secs = clean(document.querySelector(`input#i${j}sec`).value);
+              times.push(min*60+secs) ;
+            }else if(tu == "hrs/min") {
+              const hrs =clean(document.querySelector(`input#i${j}hrs`).value);
+              const min =clean(document.querySelector(`input#i${j}min2`).value);
+              times.push(hrs*3600+min*60);
+            }
+         }else{    
+            const t = clean(document.querySelector(`input#itime${j}`).value);     
+            if(t==0){return;}
+            times.push(t *  handleTimeUnitChange('sec', tu));
         }
 
-
-	    if(!T1){return;}
-	    const V1 = v1 * handleVeloUnitChange('m/s', vu1);
-		 
-		  const Vf = AverageVelo([V1, T1]);
+      });
+		  const Vf = AverageVelo(velos, times);
 
 		  document.querySelector("input#VR").value = format(Vf*handleVeloUnitChange(vu, 'm/s'));
     }

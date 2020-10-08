@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="my-4 py-2">
+<div class="my-4 py-2" id="container">
     <div class="has-background-light p-2 m-4">
     	<div class="label is-normal">
     		How would you like to calculate velocity?
@@ -240,12 +240,12 @@
     </div>	
 </section>
 
-<section id="unnormal">
-	
+
+<section id="unnormal1" class="average">
 	<div class="has-background-light p-2 m-4"> 
    <div class="columns by-3 is-gapless is-mobile">
    	   <div class="column is-3"> 
-            <div class="label is-normal">Velocity:</div>
+            <div class="label is-normal" id="Velo1">Velocity 1:</div>
    	    </div>
    	    <div class="column is-6">
 	   	    <div class="control">
@@ -271,18 +271,18 @@
 	
 	<div class="columns is-mobile is-gapless">
 		<div class="column is-3">
-			<div class="label is-normal">for : </div>
+			<div class="label is-normal" id="itime1">for 1 : </div>
 		</div>
-        <div class="normal-itime column is-6">
+        <div class="normal-i1time column is-6">
         	<div class="control"> 
-        		<input class="input" id="itime">
+        		<input class="input" id="itime1">
         	</div>
         </div>
-        <div class="imin-sec column is-6">
+        <div class="i1min-sec column is-6">
             <div class="columns is-gapless is-mobile">
             	<div class="column is-4"> 
             		<p class="control">
-						<input type="text" id="imin" class="input">
+						<input type="text" id="i1min" class="input">
 					</p>
 				</div>
 				<div class="column is-2">
@@ -292,7 +292,7 @@
 				</div>
 				<div class="column is-4"> 
 					<p class="control">
-						<input class="input" type="text" id="isec">
+						<input class="input" type="text" id="i1sec">
 					</p>
 				</div>
 				<div class="column is-2">
@@ -303,11 +303,11 @@
 			</div>
 		</div>
 
-		<div class="ihrs-min column is-6">
+		<div class="i1hrs-min column is-6">
 			<div class="columns is-gapless is-mobile">
 				<div class="column is-4">
 					<div class="control">
-						<input type="text" class="input" id="ihrs">
+						<input type="text" class="input" id="i1hrs">
 					</div>
 				</div>
 				<div class="column is-2">
@@ -317,7 +317,7 @@
 				</div>
 				<div class="column is-4">
 					<div class="control">
-						<input class="input" type="text" id="imin2">
+						<input class="input" type="text" id="i1min2">
 					</div>
 				</div>
 				<div class="column is-2">
@@ -330,7 +330,7 @@
 
 		<div class="column is-3">
 			<div class="select">
-				<select id="itime">
+				<select id="itime1">
 					<option value="sec" selected>sec</option>
 						<option value="min">min</option>
 						<option value="hrs">hrs</option>
@@ -382,7 +382,7 @@
 <script defer type="text/javascript" src="src/kernel.js"></script>
 <script defer type="text/javascript" src="src/unit_convert_funcs.js"></script>
 <script defer type="text/javascript" src="src/time_change.js"></script>
-<script defer type="text/javascript" src="src/itime_change.js"></script>
 <script defer type="text/javascript" src="src/distance_change.js"></script>
+<script defer type="text/javascript" src="src/average_velo_view.js"></script>
 </body>
 </html>

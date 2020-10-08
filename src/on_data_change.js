@@ -8,10 +8,16 @@ document.querySelector("input#acceleration").onkeyup = () =>{
 	manageViewAndResult(method)
 }
 
-document.querySelector("input#Velo1").onkeyup = () =>{
-	const method = document.querySelector("select#method").value;
-	manageViewAndResult(method)
+function veloChange(j){
+	document.querySelector("input#Velo"+j).onkeyup = () =>{
+		const method = document.querySelector("select#method").value;
+		if (document.querySelector("input#itime"+j).value) {
+			addNewFields(j);
+		}
+		manageViewAndResult(method)
+	}
 }
+veloChange(1)
 
 document.querySelector("input#VA").onkeyup = () =>{
 	const method = document.querySelector("select#method").value;
@@ -28,11 +34,16 @@ document.querySelector("input#time").onkeyup = () =>{
 }
 
 
-document.querySelector("input#itime").onkeyup = () =>{
-	const method = document.querySelector("select#method").value;
-	manageViewAndResult(method);
+function timeChange(j){
+	document.querySelector("input#itime"+j).onkeyup = () =>{
+		const method = document.querySelector("select#method").value;
+		if (document.querySelector("input#Velo"+j).value) {
+			addNewFields(j);
+		}
+		manageViewAndResult(method);
+	}
 }
-
+timeChange(1)
 
 document.querySelector("input#hrs").onkeyup = () =>{
      const method = document.querySelector("select#method").value;

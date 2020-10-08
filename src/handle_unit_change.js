@@ -2,9 +2,7 @@ let previousAccUnit = document.querySelector("select#acceleration").value
 let previousDistUnit = document.querySelector("select#distance").value
 
 let previousTimeUnit = document.querySelector("select#time").value
-let previousiTimeUnit = document.querySelector("select#itime").value
 
-let previousVelo1Unit = document.querySelector("select#Velo1").value
 let previousVRUnit = document.querySelector("select#VR").value
 let previousVAUnit = document.querySelector("select#VA").value
 
@@ -47,19 +45,35 @@ document.querySelector("select#distance").onchange = ({ currentTarget }) => {
 document.querySelector("select#time").onchange = ({ currentTarget }) => {
    const time = document.querySelector("input#time");
   //curr.value == newUnit
-  if ((currentTarget.value== "min/sec"||currentTarget.value=="hrs/min") || (previousTimeUnit== "min/sec"||previousTimeUnit=="hrs/min")) {
-      handleTime(currentTarget.value, previousTimeUnit, time);
+  if ((currentTarget.value== "min/sec"||currentTarget.value=="hrs/min") || (previousTimeUnit== "min/sec"||previousTimeUnit=="hrs/min")) {     
+      const normal = document.querySelector("div.normal-time");
+      const minSec = document.querySelector("div.min-sec");
+      const hrsMin = document.querySelector("div.hrs-min"); 
+      const min = document.querySelector("input#min");
+      const secs =document.querySelector("input#sec");
+      const hrs =document.querySelector("input#hrs");
+      const min2 =document.querySelector("input#min2");
+      const divs = [normal, minSec, hrsMin, min, secs, hrs, min2];
+
+      handleTime(currentTarget.value, previousTimeUnit, time, divs);
   }else{
       handleChange(time, currentTarget.value, previousTimeUnit, handleTimeUnitChange);
   }
   previousTimeUnit = currentTarget.value;
 }
 
-document.querySelector("select#Velo1").onchange = ({ currentTarget }) => {
-  const velo = document.querySelector("input#Velo1");
-  handleChange(velo, currentTarget.value, previousVelo1Unit, handleVeloUnitChange);
-  previousVelo1Unit = currentTarget.value;
+function selectVeloChange(j){
+  let previousVelos = [];
+
+  previousVelos[j] = document.querySelector("select#Velo"+j).value
+
+  document.querySelector("select#Velo"+j).onchange = ({ currentTarget }) => {
+    const velo = document.querySelector("input#Velo"+j);
+    handleChange(velo, currentTarget.value, previousVelos[j], handleVeloUnitChange);
+    previousVelos[j] = currentTarget.value;
+  }
 }
+selectVeloChange(1)
 
 document.querySelector("select#VR").onchange = ({ currentTarget }) => {
   const v = document.querySelector("input#VR");
@@ -67,14 +81,27 @@ document.querySelector("select#VR").onchange = ({ currentTarget }) => {
   previousVRUnit = currentTarget.value;
 }
 
-document.querySelector("select#itime").onchange = ({ currentTarget }) => {
-   const time = document.querySelector("input#itime");
+function selectTimeChange(j){
+  let previousTimes = [];
+  previousTimes[j] = document.querySelector("select#itime"+j).value;
+
+document.querySelector("select#itime"+j).onchange = ({ currentTarget }) => {
+   const time = document.querySelector("input#itime"+j);
   //curr.value == newUnit
   if ((currentTarget.value== "min/sec"||currentTarget.value=="hrs/min") || (previousTimeUnit== "min/sec"||previousTimeUnit=="hrs/min")) {
-      handleiTime(currentTarget.value, previousiTimeUnit, time);
+        const normal = document.querySelector("div.normal-itime");
+        const minSec = document.querySelector("div.imin-sec");
+        const hrsMin = document.querySelector("div.ihrs-min"); 
+        const min = document.querySelector("input#imin");
+        const secs =document.querySelector("input#isec");
+        const hrs =document.querySelector("input#ihrs");
+        const min2 =document.querySelector("input#imin2");
+      const divs = [normal, minSec, hrsMin, min, secs, hrs, min2];
+      handleTime(currentTarget.value, previousTimes[j], time, divs);
   }else{
-      handleChange(time, currentTarget.value, previousiTimeUnit, handleTimeUnitChange);
+      handleChange(time, currentTarget.value, previousTimes[j], handleTimeUnitChange);
   }
-  previousiTimeUnit = currentTarget.value;
+  previousTimes[j] = currentTarget.value;
 }
-
+}
+selectTimeChange(1)
