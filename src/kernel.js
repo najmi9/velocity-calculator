@@ -16,7 +16,6 @@ function handleTimeUnits(tu, ){
            if(t==0){return;}
            T = t *  handleTimeUnitChange('sec', tu);
         }
-
         return T;
 }
 
@@ -55,11 +54,15 @@ function manageViewAndResult(method) {
     const vu = document.querySelector("select#VA").value;
     const au = document.querySelector("select#acceleration").value;
     const tu = document.querySelector("select#time").value;
+
     let T = handleTimeUnits(tu);
+    if(!T){return}
     const V = v * handleVeloUnitChange('m/s', vu);
     const A = a * handleAccUnitChange('m/s²', au);
     const Vf = AccVelo(A, V, T);
+
     document.querySelector("input#VR").value = format(Vf*handleVeloUnitChange(vu, 'm/s'));
+  
   }else if (method == "Average velocity") {
       const velos = [];
 

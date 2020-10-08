@@ -92,7 +92,6 @@ document.querySelector("select#itime"+j).onchange = ({ currentTarget }) => {
         const normal = document.querySelector(`div.normal-i${j}time`);
         const minSec = document.querySelector(`div.i${j}min-sec`);
         const hrsMin = document.querySelector(`div.i${j}hrs-min`); 
-       
         const min = document.querySelector(`input#i${j}min`);
         const secs =document.querySelector(`input#i${j}sec`);
         const hrs =document.querySelector(`input#i${j}hrs`);

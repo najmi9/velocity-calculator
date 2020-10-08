@@ -66,5 +66,5 @@ const clean = (x)=>{
 	if (!x) {
 		return 0;
 	}
-	return parseFloat(x.replaceAll(',', ''));
+	return parseFloat(x.replaceAll(',', '')||0);
 };
