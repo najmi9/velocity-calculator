@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Acceleration Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA==" crossorigin="anonymous" />
+
+</head>
+<body>
+
+<div class="my-4 py-2">
+    <div class="has-background-light p-2 m-4">
+    	<div class="label is-normal">
+    		How would you like to calculate velocity?
+    	</div>
+		<div class="columns is-mobile">
+		    <div class="column is-6"> 
+		    	<div class="is-size-3 has-text-weight-medium">Method</div>
+		    </div> 
+			<div class="column is-6">
+		            <div class="select is-sucess">
+			            <select id="method">
+                            <option value="Distance covered" selected>Distance covered</option>
+                            <option value="Acceleration">
+                	        Acceleration
+                            </option>
+                            <option value="Average velocity"> Average velocity </option>
+		                </select>
+		            </div>
+			</div>
+		</div>
+    </div>
+    <div class="has-background-light p-2 m-4">
+    	<div class="is-size-4 has-text-weight-medium" id="selectMethod"> 	Distance Covered : </div>
+    </div>
+<section class="has-background-light p-2 m-4" id="normal">
+
+ <div class="columns by-3 is-gapless is-mobile initialSpeed">
+   	   <div class="column is-3"> 
+            <div class="label is-normal">Velocity:</div>
+   	    </div>
+   	    <div class="column is-6">
+	   	    <div class="control">
+	   	  	  <input type="text" id="VA" class="input">
+	   	    </div>
+	   	 </div>
+	   	 <div class="column is-3">
+            <div class="select is-sucess">
+   				<select id="VA">
+   					<option value="m/s" selected>m/s</option>
+					<option value="km/h">km/h</option>
+					<option value="ft/s">ft/s</option>
+					<option value="mile/h">mile/h</option>
+					<option value="km/s">km/s</option>
+					<option value="mile/s">mile/s</option>
+					<option value="c" >c</option>
+   		     		<option value="knots">knots</option>
+   				</select>
+  	        </div>
+  	    </div>
+    </div>
+
+<div class="columns is-gapless is-mobile distance">
+		<div class="column is-3"> 
+			<div class="label is-normal">Distance : </div>
+		</div>
+		<div class="column is-6" id="normal-dist">
+			<div class="control">
+				<input type="text"  class="input" id="distance" />
+			</div>
+		</div>
+			
+	    <div id="m-cm" class="column is-6">
+	    	<div  class="columns is-gapless is-mobile">
+				<div class="column is-4"> 
+            		<p class="control">
+						<input type="text" id="m" class="input">
+					</p>
+              	 </div>
+                <div class="column is-2">
+					<p class="control">
+						<a class="button is-static">m</a>
+					</p>
+			   	</div>
+				<div class="column is-4"> 
+					<p class="control">
+						<input class="input" type="text" id="cm">
+					</p>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static">cm</a>
+					</p>
+				</div>
+			</div>
+	    </div>
+
+		<div id="ft-inch" class="column is-6">
+			<div class="columns is-gapless is-mobile"> 
+				<div class="column is-4"> 
+            		<p class="control">
+						<input type="text" id="ft" class="input">
+					</p>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static">ft</a>
+					</p>
+			   	</div>
+				<div class="column is-4"> 
+					<p class="control">
+						<input class="input" type="text" id="inch">
+					</p>
+					</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static">inch</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="column is-3">
+			<div class="select is-sucess">
+				<select id="distance">
+					<option value="mm">mm</option>
+					<option value="cm">cm</option>
+					<option value="m" selected>m</option>
+					<option value="km" selected>km</option>
+					<option value="ft">ft</option>
+					<option value="yd">yd</option>
+					<option value="mile">mile</option>
+					<option value="ly">ly</option>
+					<option value="au">au</option>
+					<option value="parsec">parsec</option>
+					<option value="inch">inch</option>
+					<option value="ft/inch">ft/inch</option>
+					<option class="m/cm">m/cm</option>
+				</select>
+		    </div>
+		</div>
+	</div>
+
+  <div class="mb-3 columns is-mobile is-gapless" id="acceleration">
+    <div class="column is-3">
+        <div class="is-normal label">Acceleration :</div>
+    </div>
+    <div class="column is-6">
+      <div class="control">
+        <input type="text" id="acceleration" class="input"
+        placeholder="Acceleration">
+      </div>
+    </div>
+    <div class="column is-3">
+      <div class="select">
+        <select class="custom-select" id="acceleration">
+          <option value="m/s²" selected> m/s² </option>
+          <option value="g">g</option>
+          <option value="ft/s²">ft/s²</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+	<div class="columns is-mobile is-gapless">
+		<div class="column is-3">
+			<div class="label is-normal">Time : </div>
+		</div>
+        <div class="normal-time column is-6">
+        	<div class="control"> 
+        		<input class="input" id="time">
+        	</div>
+        </div>
+        <div class="min-sec column is-6">
+            <div class="columns is-gapless is-mobile">
+            	<div class="column is-4"> 
+            		<p class="control">
+						<input type="text" id="min" class="input">
+					</p>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static">min</a>
+					</p>
+				</div>
+				<div class="column is-4"> 
+					<p class="control">
+						<input class="input" type="text" id="sec">
+					</p>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static">sec</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="hrs-min column is-6">
+			<div class="columns is-gapless is-mobile">
+				<div class="column is-4">
+					<div class="control">
+						<input type="text" class="input" id="hrs">
+					</div>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static"> hrs</a>
+					</p>
+				</div>
+				<div class="column is-4">
+					<div class="control">
+						<input class="input" type="text" id="min2">
+					</div>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static">min</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="column is-3">
+			<div class="select">
+				<select id="time">
+					<option value="sec" selected>sec</option>
+						<option value="min">min</option>
+						<option value="hrs">hrs</option>
+						<option value="dys">dys</option>
+						<option value="week">week</option>
+						<option value="month">month</option>
+						<option value="yrs" >yrs</option>
+						<option value="min/sec">min/sec</option>
+						<option value="hrs/min">hrs/min</option>
+						<option value="ms">millisecs</option>
+				</select>			
+			</div>
+		</div>
+    </div>	
+</section>
+
+<section id="unnormal">
+	
+	<div class="has-background-light p-2 m-4"> 
+   <div class="columns by-3 is-gapless is-mobile">
+   	   <div class="column is-3"> 
+            <div class="label is-normal">Velocity:</div>
+   	    </div>
+   	    <div class="column is-6">
+	   	    <div class="control">
+	   	  	  <input type="text" id="Velo1" class="input">
+	   	    </div>
+	   	 </div>
+	   	 <div class="column is-3">
+            <div class="select is-sucess">
+   				<select id="Velo1">
+   					<option value="m/s" selected>m/s</option>
+					<option value="km/h">km/h</option>
+					<option value="ft/s">ft/s</option>
+					<option value="mile/h">mile/h</option>
+					<option value="km/s">km/s</option>
+					<option value="mile/s">mile/s</option>
+					<option value="c" >c</option>
+   		     		<option value="knots">knots</option>
+   				</select>
+  	        </div>
+  	    </div>
+    </div>
+
+	
+	<div class="columns is-mobile is-gapless">
+		<div class="column is-3">
+			<div class="label is-normal">for : </div>
+		</div>
+        <div class="normal-itime column is-6">
+        	<div class="control"> 
+        		<input class="input" id="itime">
+        	</div>
+        </div>
+        <div class="imin-sec column is-6">
+            <div class="columns is-gapless is-mobile">
+            	<div class="column is-4"> 
+            		<p class="control">
+						<input type="text" id="imin" class="input">
+					</p>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static">min</a>
+					</p>
+				</div>
+				<div class="column is-4"> 
+					<p class="control">
+						<input class="input" type="text" id="isec">
+					</p>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static">sec</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="ihrs-min column is-6">
+			<div class="columns is-gapless is-mobile">
+				<div class="column is-4">
+					<div class="control">
+						<input type="text" class="input" id="ihrs">
+					</div>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static"> hrs</a>
+					</p>
+				</div>
+				<div class="column is-4">
+					<div class="control">
+						<input class="input" type="text" id="imin2">
+					</div>
+				</div>
+				<div class="column is-2">
+					<p class="control">
+						<a class="button is-static">min</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="column is-3">
+			<div class="select">
+				<select id="itime">
+					<option value="sec" selected>sec</option>
+						<option value="min">min</option>
+						<option value="hrs">hrs</option>
+						<option value="dys">dys</option>
+						<option value="week">week</option>
+						<option value="month">month</option>
+						<option value="yrs" >yrs</option>
+						<option value="min/sec">min/sec</option>
+						<option value="hrs/min">hrs/min</option>
+						<option value="ms">millisecs</option>
+				</select>			
+			</div>
+		</div>
+    </div>	
+</div>
+
+</section>
+</div>
+<div class="has-background-light p-2 m-4"> 
+   <div class="columns by-3 is-gapless is-mobile">
+   	   <div class="column is-3"> 
+            <div class="label is-normal">Velocity:</div>
+   	    </div>
+   	    <div class="column is-6">
+	   	    <div class="control">
+	   	  	  <input type="text" id="VR" class="input" readonly>
+	   	    </div>
+	   	 </div>
+	   	 <div class="column is-3">
+            <div class="select is-sucess">
+   				<select id="VR">
+   					<option value="m/s" selected>m/s</option>
+					<option value="km/h">km/h</option>
+					<option value="ft/s">ft/s</option>
+					<option value="mile/h">mile/h</option>
+					<option value="km/s">km/s</option>
+					<option value="mile/s">mile/s</option>
+					<option value="c" >c</option>
+   		     		<option value="knots">knots</option>
+   				</select>
+  	        </div>
+  	    </div>
+    </div>
+
+<script defer type="text/javascript" src="src/view_change.js"></script>
+<script defer type="text/javascript" src="src/handle_unit_change.js"></script>
+<script defer type="text/javascript" src="src/on_data_change.js"></script>
+<script defer type="text/javascript" src="src/calcl_velo.js"></script>
+<script defer type="text/javascript" src="src/kernel.js"></script>
+<script defer type="text/javascript" src="src/unit_convert_funcs.js"></script>
+<script defer type="text/javascript" src="src/time_change.js"></script>
+<script defer type="text/javascript" src="src/itime_change.js"></script>
+<script defer type="text/javascript" src="src/distance_change.js"></script>
+</body>
+</html>
